@@ -1,0 +1,97 @@
+#:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+#import transition in kivy before it work
+# Transitions (NoTransition, SlideTransition, CardTransition, SwapTransition, FadeTransition,
+# WipeTransition, FallOutTransition, RiseInTransition)
+
+ScreenTwo:
+    name: "screentwo"
+    title:title
+    description:description
+    ADDTODO:
+        Button:
+            text: '[b]My ToDo List[/b]'
+            markup: True
+            font_size: "15dp"
+            pos: "75dp", "150dp"
+            size: "200dp", "40dp"
+            background_color: 1 ,0 , .5, 1
+            background_normal: "normal"
+            background_down: "normal"
+            on_release:
+                root.manager.current = "main"
+                root.manager.transition.direction = "right"
+                root.manager.transition = RiseInTransition()
+
+        Button:
+            text: "[b]Add Task[/b]"
+            markup: True
+            font_size: "15dp"
+            pos: "105dp", "200dp"
+            size: "140dp", "30dp"
+            background_color: 1 ,0 , .5, 1
+            background_normal: "normal"
+            background_down: "normal"
+
+        Label:
+            text: "[b]Add Task[/b]"
+            markup: True
+            font_size: "45dp"
+            pos: "30dp", "532dp"
+            size: "200dp", "40dp"
+            background_color: 0 ,0 , 0, 1
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        
+        Label:
+            text: "[b]Title[/b]"
+            markup: True
+            font_size: "15dp"
+            pos: "20dp", "475dp"
+            size: "50dp", "28dp"
+            background_color: 0 ,0 , 0, 1
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        TextInput:
+            id: title
+            size_hint: None, None
+            width: "310dp"
+            height: "30dp"
+            pos: "20dp", "445dp"
+            multiline: False
+
+        Label:
+            text: "[b]Description[/b]"
+            markup: True
+            font_size: "15dp"
+            pos: "20dp", "400dp"
+            size: "100dp", "28dp"
+            background_color: 0 ,0 , 0, 1
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        TextInput:
+            id: description
+            size_hint: None, None
+            width: "310dp"
+            height: "100dp"
+            pos: "20dp", "300dp"
+            multiline: True
+
+
+<ADDTODO>:
