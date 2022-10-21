@@ -1,3 +1,4 @@
+
 #:import RiseInTransition kivy.uix.screenmanager.RiseInTransition
 #:import FallOutTransition kivy.uix.screenmanager.FallOutTransition
 #:import NoTransition kivy.uix.screenmanager.NoTransition
@@ -34,6 +35,7 @@ ScreenTwo:
             background_color: 1 ,0 , .5, 1
             background_normal: "normal"
             background_down: "normal"
+            on_press: app.add_to_do()
 
         Label:
             text: "[b]Add Task[/b]"
